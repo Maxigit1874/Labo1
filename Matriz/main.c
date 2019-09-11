@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void mostrarNombres(char mat[][20]);
+
 int main()
 {
 
