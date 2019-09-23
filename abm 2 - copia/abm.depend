@@ -1,0 +1,52 @@
+# depslib dependency file v1.0
+1569239969 source:c:\users\alumno\desktop\abm\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+
+1569242946 source:c:\users\alumno\desktop\labo1\abm\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+
+1569243638 source:c:\users\alumno\desktop\labo1\abm 2\alumno.c
+	"alumno.h"
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"Alumno.h"
+
+1569243504 c:\users\alumno\desktop\labo1\abm 2\alumno.h
+
+1569243638 source:c:\users\alumno\desktop\labo1\abm 2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"Alumno.h"
+
+1569245639 source:c:\users\alumno\desktop\labo1\abm 2 - copia\alumno.c
+	"alumno.h"
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"Alumno.h"
+
+1569245639 c:\users\alumno\desktop\labo1\abm 2 - copia\alumno.h
+
+1569245652 source:c:\users\alumno\desktop\labo1\abm 2 - copia\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"Alumno.h"
+
+1569246850 source:c:\users\alumno\desktop\labo1\abm 2 - copia\carrera.c
+	"Carrera.h"
+
+1569246918 c:\users\alumno\desktop\labo1\abm 2 - copia\carrera.h
+
