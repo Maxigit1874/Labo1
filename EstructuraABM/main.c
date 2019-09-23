@@ -29,8 +29,10 @@ int menu();
 int buscarLibre(eAlumno alumnos[], int tam);
 int buscarAlumno(eAlumno alumno[], int leg, int tam);
 int altaAlumno (eAlumno alumnos[], int tam);
+int altaAlumnoAuto (eAlumno alumnos[], int tam, int pleg);
 int bajaAlumno(eAlumno alumno[], int tam);
 int modificarAlumno(eAlumno alumno[], int tam);
+int legajo = 2000;
 eAlumno newAlumno (int legajo, int edad, int n1, int n2, float promedio, char sexo, char nombre[], eFecha fecha);
 
 
@@ -45,7 +47,10 @@ int main()
         switch(menu()){
     case 1:
 
-        altaAlumno (alumnos, TAM);
+        //altaAlumno (alumnos, TAM);
+        if (altaAlumnoAuto(alumnos, TAM, legajo)){
+         legajo ++;
+        }
         system ("pause");
         break;
 
@@ -498,5 +503,13 @@ void ordenarAlumnos(eAlumno vec[], int tam){
             }
         }
     }
+
+}
+
+int altaAlumnoAuto (eAlumno alumnos[], int tam, int pleg){
+
+
+
+
 
 }
