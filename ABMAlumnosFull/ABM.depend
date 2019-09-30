@@ -65,30 +65,74 @@
 	"carrera.h"
 	"alumno.h"
 
-1569844398 source:c:\users\alumno\desktop\labo1\abmalumnocarreraslibraryinformes\alumno.c
+1569423345 source:c:\users\alumno\desktop\abmalumnocarreraslibraryinformes\alumno.c
 	"alumno.h"
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
 	<string.h>
 
-1569844398 c:\users\alumno\desktop\labo1\abmalumnocarreraslibraryinformes\alumno.h
+1569286799 c:\users\alumno\desktop\abmalumnocarreraslibraryinformes\alumno.h
 	"carrera.h"
 
-1569844398 c:\users\alumno\desktop\labo1\abmalumnocarreraslibraryinformes\carrera.h
+1569415919 c:\users\alumno\desktop\abmalumnocarreraslibraryinformes\carrera.h
 
-1569844398 source:c:\users\alumno\desktop\labo1\abmalumnocarreraslibraryinformes\carrera.c
+1569286850 source:c:\users\alumno\desktop\abmalumnocarreraslibraryinformes\carrera.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
 	<string.h>
 	"carrera.h"
 
-1569845060 source:c:\users\alumno\desktop\labo1\abmalumnocarreraslibraryinformes\main.c
+1569849024 source:c:\users\alumno\desktop\abmalumnocarreraslibraryinformes\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
 	<string.h>
 	"carrera.h"
 	"alumno.h"
+
+1569423346 source:c:\users\alumno\desktop\labo1\abmalumnosfull\alumno.c
+	"alumno.h"
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+
+1569286800 c:\users\alumno\desktop\labo1\abmalumnosfull\alumno.h
+	"carrera.h"
+
+1569415920 c:\users\alumno\desktop\labo1\abmalumnosfull\carrera.h
+
+1569286852 source:c:\users\alumno\desktop\labo1\abmalumnosfull\carrera.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"carrera.h"
+
+1569850233 source:c:\users\alumno\desktop\labo1\abmalumnosfull\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"carrera.h"
+	"alumno.h"
+	"Comida.h"
+	"Almuerzo.h"
+
+1569850161 source:c:\users\alumno\desktop\labo1\abmalumnosfull\almuerzo.c
+	"Almuerzo.h"
+
+1569854445 c:\users\alumno\desktop\labo1\abmalumnosfull\almuerzo.h
+	"alumno.h"
+	"Comida.h"
+
+1569850160 c:\users\alumno\desktop\labo1\abmalumnosfull\comida.h
+
+1569850206 source:c:\users\alumno\desktop\labo1\abmalumnosfull\comida.c
+	"Comida.h"
+
+1569850161 c:\users\alumno\desktop\labo1\abmalumnosfull\almuerzo.c
+	"Almuerzo.h"
 
