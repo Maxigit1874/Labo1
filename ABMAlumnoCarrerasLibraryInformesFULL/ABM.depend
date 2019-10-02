@@ -1,0 +1,55 @@
+# depslib dependency file v1.0
+1570016534 source:c:\users\alumno\desktop\labo1\abmalumnocarreraslibraryinformesfull\almuerzo.c
+	"alumno.h"
+	"almuerzo.h"
+	"carrera.h"
+	"comida.h"
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+
+1570016534 c:\users\alumno\desktop\labo1\abmalumnocarreraslibraryinformesfull\alumno.h
+	"carrera.h"
+
+1570016534 c:\users\alumno\desktop\labo1\abmalumnocarreraslibraryinformesfull\carrera.h
+
+1570016534 c:\users\alumno\desktop\labo1\abmalumnocarreraslibraryinformesfull\almuerzo.h
+	"comida.h"
+
+1570016534 c:\users\alumno\desktop\labo1\abmalumnocarreraslibraryinformesfull\comida.h
+
+1570016534 source:c:\users\alumno\desktop\labo1\abmalumnocarreraslibraryinformesfull\alumno.c
+	"alumno.h"
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+
+1570016534 source:c:\users\alumno\desktop\labo1\abmalumnocarreraslibraryinformesfull\carrera.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"carrera.h"
+
+1570016534 source:c:\users\alumno\desktop\labo1\abmalumnocarreraslibraryinformesfull\comida.c
+	"alumno.h"
+	"almuerzo.h"
+	"carrera.h"
+	"comida.h"
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+
+1570028575 source:c:\users\alumno\desktop\labo1\abmalumnocarreraslibraryinformesfull\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"carrera.h"
+	"alumno.h"
+	"comida.h"
+	"almuerzo.h"
+
