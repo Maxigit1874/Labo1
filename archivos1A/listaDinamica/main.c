@@ -9,6 +9,7 @@ typedef struct
     float sueldo;
 } eEmpleado;
 
+eEmpleado* newEmpleado();
 eEmpleado* newEmpleadoParam( int id, char* nombre, float sueldo);
 eEmpleado** agrandarLista(eEmpleado** vec, int tam);
 int setIdEmpleado(eEmpleado* e, int id);
@@ -16,16 +17,20 @@ int setNombreEmpleado(eEmpleado* e, char* nombre);
 int setSueldoEmpleado(eEmpleado* e, float sueldo);
 int mostrarEmpleado( eEmpleado* e);
 int mostrarEmpleados( eEmpleado** e, int tam);
+int guardarEmpleadosBinario(eEmpleado** lista, int tam, char* path);
+
 
 int main()
 {
     int tam = 0;
+    int tam2 = 0;
+    int cant;
+    char buffer[3][30];
     eEmpleado* auxEmpleado = NULL;
     eEmpleado** lista = (eEmpleado**) malloc( sizeof(eEmpleado*));
-    int auxInt;
-    float auxFloat;
-    char auxCad[100];
-    int cant;
+    int id;
+    float sueldo;
+    char nombre[20];
 
     if( lista == NULL)
     {
@@ -34,73 +39,11 @@ int main()
         exit(EXIT_FAILURE);
     }
 
-
-
-    /* printf("Ingrese id: ");
-     scanf("%d", &auxInt);
-
-     printf("Ingrese nombre: ");
-     fflush(stdin);
-     gets(auxCad);
-
-     printf("Ingrese sueldo: ");
-     scanf("%f", &auxFloat);
-
-     auxEmpleado = newEmpleadoParam(auxInt, auxCad, auxFloat);
-     if( auxEmpleado == NULL)
-     {
-         printf("No se pudo crear el empleado\n");
-     }
-     else
-     {
-         printf("Empleado creado con exito");
-
-
-         *(lista + tam) = auxEmpleado;
-
-         if(agrandarLista(lista, tam +1 ) != NULL)
-         {
-             printf("Empleado agregado a la lista");
-             tam++;
-         }
-     }
-
-
-     system("pause");
-
-     auxEmpleado = newEmpleadoParam(18700, "Jose", 24500);
-     if( auxEmpleado == NULL)
-     {
-         printf("No se pudo crear el empleado\n");
-     }
-     else
-     {
-         printf("Empleado creado con exito");
-
-
-         *(lista + tam) = auxEmpleado;
-
-         if(agrandarLista(lista, tam +1 ) != NULL)
-         {
-             printf("Empleado agregado a la lista");
-             tam++;
-         }
-     }
-
-
-     system("pause");
-
-     mostrarEmpleados(lista, tam);
-
-
-
-    */
-    char buffer[3][30];
-
-
     FILE* f = fopen("empleados.csv", "r");
     if( f == NULL)
     {
+        printf("No se pudo abrir el archivo\n");
+        system("pause");
         exit(1);
     }
 
@@ -112,26 +55,90 @@ int main()
         cant = fscanf(f, "%[^,],%[^,],%[^\n]\n", buffer[0], buffer[1], buffer[2] );
         if( cant == 3)
         {
+            id = atoi(buffer[0]);
+            strcpy(nombre, buffer[1]);
+            sueldo = atof(buffer[2]);
 
-            auxEmpleado = newEmpleadoParam(atoi(buffer[0]), buffer[1], atof(buffer[2]));
+            auxEmpleado = newEmpleadoParam(id, nombre, sueldo);
 
             if( auxEmpleado != NULL)
             {
                 *(lista + tam) = auxEmpleado;
-                mostrarEmpleado(auxEmpleado);
-                system("pause");
+                tam++;
 
-                if(agrandarLista(lista, tam +1 ) != NULL)
+                if((lista = agrandarLista(lista, tam + 1 )) == NULL)
                 {
-                    tam++;
+                    printf("No se pudo agrandar la lista");
+
                 }
 
             }
         }
+        else
+        {
+            break;
+        }
+    }
+    fclose(f);
+
+    //
+    mostrarEmpleados(lista, tam);
+
+    if( guardarEmpleadosBinario(lista, tam, "empleados.bin"))
+    {
+        printf("Empleados guardados con exito\n");
+
+    }
+    else{
+        printf("No se pudieron serializar los empleados\n");
     }
 
-   //
-   // mostrarEmpleados(lista, tam);
+    //--------------Leo desde binario------------------
+    eEmpleado** lista2 = (eEmpleado**) malloc( sizeof(eEmpleado*));
+    if( lista2 == NULL)
+    {
+        printf("No se pudo asignar memoria\n");
+        system("pause");
+        exit(EXIT_FAILURE);
+    }
+
+    f = fopen("empleados.bin", "rb");
+    if( f == NULL)
+    {
+        printf("No se pudo abrir el archivo\n");
+        system("pause");
+        exit(1);
+    }
+
+    while( !feof(f))
+    {
+        auxEmpleado = newEmpleado();
+        if( auxEmpleado != NULL){
+          cant = fread( auxEmpleado ,  sizeof(eEmpleado), 1, f);
+
+            if( cant == 1){
+                *(lista2 + tam2) = auxEmpleado;
+                tam2++;
+
+                if((lista2 = agrandarLista(lista2, tam2 + 1 )) == NULL)
+                {
+                    printf("No se pudo agrandar la lista");
+
+                }
+            }
+        }
+        else
+        {
+            break;
+        }
+    }
+
+    //
+    printf("Empleados de la lista binaria\n\n");
+    mostrarEmpleados(lista2, tam2);
+
+
+
 
     fclose(f);
     return 0;
@@ -274,7 +281,7 @@ int mostrarEmpleados( eEmpleado** e, int tam)
 
 eEmpleado** agrandarLista(eEmpleado** vec, int tam)
 {
-    eEmpleado** aux = (eEmpleado**) realloc(vec, sizeof(eEmpleado*) + tam);
+    eEmpleado** aux = (eEmpleado**) realloc(vec, sizeof(eEmpleado*) * tam);
     if( aux != NULL)
     {
         vec = aux;
@@ -282,6 +289,32 @@ eEmpleado** agrandarLista(eEmpleado** vec, int tam)
     return vec;
 }
 
+int guardarEmpleadosBinario(eEmpleado** lista, int tam, char* path)
+{
 
+    int todoOk = 0;
+    int cant;
+    FILE* f;
+
+    if( lista != NULL && path != NULL && tam > 0)
+    {
+        f = fopen(path, "wb");
+        if( f == NULL)
+        {
+            return todoOk;
+        }
+        for(int i=0; i < tam; i++)
+        {
+            cant = fwrite( *(lista + i), sizeof(eEmpleado),  1, f  );
+            if(cant < 1)
+            {
+                return todoOk;
+            }
+        }
+        fclose(f);
+        todoOk = 1;
+    }
+    return todoOk;
+}
 
 
